@@ -5,10 +5,18 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Replace this with the actual token you obtain
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjMxMjgwNzYsInVzZXJuYW1lIjoidGVzdHVzZXIifQ.ND-0zELTPfHrVIUQBBrTRMFsSNpdAMa5kPf7UgcHHm0'; 
+
   useEffect(() => {
     const fetchPackingList = async () => {
       try {
-        const response = await fetch('http://localhost:8080/packinglists/1');
+        const response = await fetch('http://localhost:8080/packinglists/1', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -22,7 +30,7 @@ const App = () => {
     };
 
     fetchPackingList();
-  }, []);
+  }, [token]); // Add token to dependency array if it might change
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -75,7 +83,7 @@ const App = () => {
                   <td style={{ border: '1px solid black', padding: '8px' }}>
                     {product.image && (
                       <img
-                      src={product.image}
+                        src={product.image}
                         alt={product.name}
                         style={{ width: '100px', height: '100px', objectFit: 'contain' }}
                       />

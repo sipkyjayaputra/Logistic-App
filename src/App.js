@@ -10,6 +10,9 @@ import PaymentTermEdit from './pages/PaymentTermEdit';
 import Company from './pages/Company';
 import CompanyAdd from './pages/CompanyAdd';
 import CompanyEdit from './pages/CompanyEdit';
+import CommercialInvoice from './pages/CommercialInvoice';
+import CommercialInvoiceEdit from './pages/CommercialInvoiceEdit';
+import CommercialInvoiceAdd from './pages/CommercialInvoiceAdd';
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
         <Route path="/companies/add" element={<Protected element={<CompanyAdd />} />} />
         <Route path="/companies/edit/:id" element={<Protected element={<CompanyEdit />} />} />
         <Route path="/companies" element={<Protected element={<Company />} />} />
+        <Route path="/commercial-invoices/add" element={<Protected element={<CommercialInvoiceAdd />} />} />
+        <Route path="/commercial-invoices/edit/:id" element={<Protected element={<CommercialInvoiceEdit />} />} />
+        <Route path="/commercial-invoices" element={<Protected element={<CommercialInvoice />} />} />
         <Route path="/" element={<Protected element={<Home />} />} />
       </Routes>
     </Router>

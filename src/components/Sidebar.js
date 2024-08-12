@@ -31,7 +31,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className={`nav-link ${isActive('/commercial-invoice') ? 'active' : ''}`} to="/commercial-invoice">
+            <Link className={`nav-link ${isActive('/commercial-invoices') ? 'active' : ''}`} to="/commercial-invoices">
               <span data-feather="shopping-cart"></span>
               Commercial Invoice
             </Link>
